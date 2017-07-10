@@ -13,6 +13,6 @@ public interface CartDAO {
 	public void update(Cart cart);
 	public void delete(Cart cart);
 	public List<Cart> getAll(String username);
-	
+	public List<Cart> getMaxcartid();
 	
 }

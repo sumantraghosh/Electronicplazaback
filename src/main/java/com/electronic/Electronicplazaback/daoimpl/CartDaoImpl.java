@@ -38,11 +38,18 @@ public class CartDaoImpl implements CartDAO {
 	}
 	public List<Cart> getAll(String username) {
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Cart where username=:username");
+		Query query=session.createQuery("from Cart where username=:username and status='N'");
 		query.setParameter("username",username);
 		//@SuppressWarnings("unchecked");
 		List<Cart> list=query.list();
 		return list;
 	}
-
+	public List<Cart> getMaxcartid() {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Cart ORDER BY CARTID");
+		
+		//@SuppressWarnings("unchecked");
+		List<Cart> list=query.list();
+		return list;
+	}
 }
